@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LITHISH.EDITZ | Cinematic Video Editor, Photographer & Videographer</title>
+<meta name="description" content="Freelance cinematic video editing, photography and videography at affordable prices by Lithish.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--panel:#111;--tx:#fff;--mut:#b4b8c2;--b:#2EC4FF;--v:#8B5CF6;--m:#D946EF;--g:linear-gradient(90deg,#2EC4FF,#8B5CF6,#D946EF);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.1;margin:0}
+a{color:inherit;text-decoration:none}
+section{padding:90px 20px;max-width:1100px;margin:auto}
+.eyebrow{letter-spacing:.25em;font-size:.72rem;color:var(--b);text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(1.9rem,6vw,3.2rem);margin-bottom:28px}
+.grad{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;font-weight:600;font-size:.9rem;border:1px solid #444;background:transparent;color:#fff;cursor:pointer;transition:.3s;font-family:inherit}
+.btn:hover{box-shadow:0 0 24px rgba(139,92,246,.6);border-color:var(--v);transform:translateY(-2px)}
+.btn.p{background:var(--g);border:0;color:#050505}
+#loader{position:fixed;inset:0;background:#000;z-index:99;display:grid;place-items:center;transition:opacity .8s,visibility .8s}
+#loader.off{opacity:0;visibility:hidden}
+.ap{width:90px;height:90px;border-radius:50%;border:3px solid var(--b);box-shadow:0 0 30px var(--v),inset 0 0 20px var(--m);animation:sp 1.4s linear infinite;border-top-color:var(--m)}
+@keyframes sp{to{transform:rotate(360deg)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px;background:rgba(5,5,5,.75);backdrop-filter:blur(12px);border-bottom:1px solid #1d1d1d}
+nav b{font-family:'Playfair Display',serif;letter-spacing:.12em}
+.links{display:flex;gap:20px;align-items:center;font-size:.85rem;color:var(--mut)}
+.links a:hover{color:#fff}
+#burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem}
+@media(max-width:820px){#burger{display:block}.links{position:fixed;top:56px;left:0;right:0;background:#0a0a0a;flex-direction:column;padding:24px;transform:translateY(-130%);transition:.4s}.links.open{transform:none}}
+#hero{max-width:none;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding-top:110px}
+#hero::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 20% 30%,rgba(46,196,255,.28),transparent 40%),radial-gradient(circle at 80% 60%,rgba(217,70,239,.26),transparent 42%),radial-gradient(circle at 50% 90%,rgba(139,92,246,.25),transparent 45%);animation:dr 14s ease-in-out infinite alternate}
+@keyframes dr{to{transform:translate(4%,-4%) scale(1.12)}}
+#hero>*{position:relative;max-width:820px}
+.brand{letter-spacing:.4em;font-size:.8rem;color:var(--mut);margin-bottom:20px}
+#hero h1{font-size:clamp(2.2rem,8vw,5rem);margin-bottom:22px}
+#hero p{color:var(--mut);margin:0 auto 30px;max-width:620px}
+.bar{position:absolute;left:0;right:0;height:5vh;background:#000;z-index:2}
+.top{top:0}.bot{bottom:0}
+.rv{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.01));border:1px solid #262626;border-radius:20px;padding:26px;transition:.35s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--v);box-shadow:0 0 30px rgba(139,92,246,.25);transform:translateY(-6px)}
+.card h3{font-size:1.5rem;margin-bottom:10px}
+.card ul{padding-left:18px;color:var(--mut);font-size:.88rem;flex:1}
+.card .btn{margin-top:18px;text-align:center}
+.pv{height:120px;border-radius:12px;margin-bottom:18px}
+.about{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:center}
+.ph{aspect-ratio:4/5;border-radius:20px;background:linear-gradient(160deg,#1a1a2e,#2a1240);display:grid;place-items:center;color:var(--mut);font-size:.8rem;border:1px dashed #555;text-align:center;padding:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{border:1px solid #333;border-radius:99px;padding:5px 14px;font-size:.78rem;color:var(--mut)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px}
+.tabs button{white-space:nowrap;background:#111;border:1px solid #2a2a2a;color:var(--mut);padding:8px 18px;border-radius:99px;cursor:pointer;font-family:inherit}
+.tabs button.on{background:var(--g);color:#050505;border:0;font-weight:600}
+.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.it{aspect-ratio:16/11;border-radius:16px;position:relative;overflow:hidden;cursor:pointer;border:1px solid #222;animation:fi .6s}
+@keyframes fi{from{opacity:0;transform:scale(.96)}}
+.it .bg{position:absolute;inset:0;transition:transform .6s}
+.it:hover .bg{transform:scale(1.12)}
+.it .cap{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(transparent,#000c);font-size:.8rem}
+.it .pl{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px;border-radius:50%;background:#0008;border:1px solid #fff8;display:grid;place-items:center;opacity:0;transition:.3s}
+.it:hover .pl{opacity:1}
+#modal{position:fixed;inset:0;background:#000e;z-index:90;display:none;place-items:center;padding:20px}
+#modal.open{display:grid}
+#mc{width:min(900px,100%);aspect-ratio:16/9;border-radius:14px;overflow:hidden;display:grid;place-items:center;text-align:center;color:var(--mut);position:relative}
+#mc video,#mc img{width:100%;height:100%;object-fit:cover}
+#x{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:20px;font-size:2rem;background:none;border:0;color:#fff;cursor:pointer}
+.ba{position:relative;aspect-ratio:16/8;border-radius:20px;overflow:hidden;border:1px solid #333;touch-action:none;user-select:none}
+.ba>div{position:absolute;inset:0;display:grid;place-items:center;font-size:.8rem;letter-spacing:.2em}
+.ba .after{background:linear-gradient(120deg,#0b3b57,#6d28d9,#d946ef)}
+.ba .before{background:linear-gradient(120deg,#555,#777,#666);clip-path:inset(0 50% 0 0)}
+.ba .hd{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;display:block;pointer-events:none}
+.ba .hd::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.price{font-size:1.1rem;color:var(--b);margin:6px 0 12px}
+.pop{border-color:var(--m)}
+.tag{font-size:.65rem;letter-spacing:.2em;color:var(--m);text-transform:uppercase}
+.rev{min-height:160px;text-align:center;padding:36px 24px;border:1px dashed #444;border-radius:20px;color:var(--mut)}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#444;cursor:pointer}
+.dots i.on{background:var(--m)}
+form{display:grid;gap:14px;margin-top:34px}
+input,select,textarea{width:100%;background:#0f0f0f;border:1px solid #2b2b2b;color:#fff;padding:13px 15px;border-radius:12px;font-family:inherit;font-size:.95rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--v)}
+.row{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cb{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.soc{display:flex;gap:16px;flex-wrap:wrap}
+.soc a{display:flex;align-items:center;gap:12px}
+svg{width:26px;height:26px;fill:currentColor}
+footer{border-top:1px solid #1c1c1c;text-align:center;padding:50px 20px calc(50px + env(safe-area-inset-bottom,0px));color:var(--mut)}
+footer b{font-family:'Playfair Display',serif;letter-spacing:.2em;color:#fff;font-size:1.3rem}
+.fs{display:flex;gap:18px;justify-content:center;margin:20px 0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="loader"><div class="ap" role="status" aria-label="Loading"></div></div>
+<nav><b class="grad">LITHISH.EDITZ</b><button id="burger" aria-label="Menu">☰</button>
+<div class="links" id="links"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a class="btn p" href="#contact">Book Your Edit</a></div></nav>
+
+<header id="hero" section>
+<div class="bar top"></div><div class="bar bot"></div>
+<div class="brand">LITHISH.EDITZ</div>
+<h1 class="rv">TURN YOUR VISION INTO <span class="grad">CINEMATIC REALITY.</span></h1>
+<p class="rv">Hey, I’m Lithish, a freelance video editor, photographer, and videographer. I create cinematic edits, stunning visuals, and professional content at affordable prices.</p>
+<div class="rv"><a class="btn p" href="#work">Explore My Work</a> <a class="btn" href="#contact">Book Your Edit</a></div>
+</header>
+
+<section id="about"><div class="about">
+<div class="ph rv">Replace with your photo<br>(set ABOUT_PHOTO in the config)</div>
+<div class="rv"><div class="eyebrow">About</div><h2>BEHIND THE <span class="grad">LENS</span></h2>
+<p style="color:var(--mut)">I’m Lithish, a passionate freelance creative specializing in cinematic video editing, photography, and video shooting. I transform ordinary moments into extraordinary visual experiences.</p>
+<p style="color:var(--mut)">Whether you need a cinematic personal edit, a social media reel, a professional photoshoot, or event videography, I focus on delivering creative quality, attention to detail, and affordable pricing.</p>
+<p style="color:var(--mut)">My goal is to bring your ideas to life through powerful visuals and storytelling.</p>
+<div class="chips" id="skills"></div></div></div></section>
+
+<section id="services"><div class="eyebrow">Services</div><h2 class="rv">WHAT I <span class="grad">CREATE</span></h2><div class="grid g2" id="svc"></div></section>
+
+<section id="work"><div class="eyebrow">Portfolio</div><h2 class="rv">MY <span class="grad">WORK</span></h2>
+<div class="tabs" id="tabs"></div><div class="gal" id="gal"></div>
+<h3 style="margin:50px 0 16px">Before &amp; After</h3>
+<div class="ba" id="ba"><div class="after">AFTER (replace)</div><div class="before">BEFORE (replace)</div><span class="hd"></span></div></section>
+
+<section id="pricing"><div class="eyebrow">Pricing</div><h2 class="rv">PREMIUM CREATIVITY.<br><span class="grad">AFFORDABLE PRICES.</span></h2><div class="grid g2" id="prc"></div>
+<p style="text-align:center;color:var(--mut);margin-top:30px">Every project is unique. Contact me for affordable custom pricing.</p></section>
+
+<section id="reviews"><div class="eyebrow">Client Reviews</div><h2 class="rv">KIND <span class="grad">WORDS</span></h2>
+<div class="rev" id="rev"></div><div class="dots" id="dots"></div></section>
+
+<section id="contact"><div class="eyebrow">Contact</div><h2 class="rv">LET’S CREATE <span class="grad">SOMETHING AMAZING.</span></h2>
+<p style="color:var(--mut)">Have a project in mind? Let’s bring your vision to life.</p>
+<div class="cb"><a class="btn p" id="wa" target="_blank" rel="noopener">WhatsApp</a><a class="btn" id="ig" target="_blank" rel="noopener">Instagram</a><a class="btn" id="yt" target="_blank" rel="noopener">YouTube</a><a class="btn" id="em">Email</a></div>
+<form id="form"><div class="row"><input name="name" placeholder="Name" required aria-label="Name"><input name="contact" placeholder="Phone / email" required aria-label="Contact information"></div>
+<div class="row"><select name="service" id="sel" aria-label="Service required"></select><input name="budget" placeholder="Budget" aria-label="Budget"></div>
+<input name="deadline" placeholder="Deadline" aria-label="Deadline"><textarea name="desc" rows="4" placeholder="Project description" required aria-label="Project description"></textarea>
+<button class="btn p" type="submit">Send Inquiry via WhatsApp</button></form></section>
+
+<section id="social" style="text-align:center"><div class="eyebrow">Social</div><h2>FOLLOW MY <span class="grad">CREATIVE JOURNEY</span></h2>
+<div class="grid g2"><a class="card" id="ig2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></svg><h3>Instagram</h3><span style="color:var(--mut)">@Lithish.Editz</span></a>
+<a class="card" id="yt2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 00-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 002.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 001.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 001.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg><h3>YouTube</h3><span style="color:var(--mut)">@lithisheditz</span></a></div></section>
+
+<footer><b>LITHISH.EDITZ</b><p>Turning moments into cinematic memories.</p>
+<div class="fs"><a id="ig3" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></svg></a><a id="yt3" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 00-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 002.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 001.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 001.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a></div>
+<p>© 2026 LITHISH.EDITZ. All rights reserved.</p><a class="btn" href="#hero">↑ Back to top</a></footer>
+
+<div id="modal"><button id="x" aria-label="Close">×</button><div id="mc"></div></div>
+
+<script>
+/* ===== EDIT HERE ===== */
+const SITE={
+ whatsapp:"",            // e.g. "919876543210" (country code, no +)
+ email:"",               // your email
+ instagram:"https://instagram.com/Lithish.Editz",
+ youtube:"https://youtube.com/@lithisheditz",
+ skills:["Video Editing","Color Grading","Motion Graphics","Photography","Videography","Reels & Shorts"], // edit with your real tools
+ services:[
+  {t:"Video Editing",d:"Cinematic edits that make every frame feel like a film.",l:["Cinematic video editing","Instagram Reels","YouTube Shorts","Mass and stylish edits","Birthday video edits","Wedding and event edits","Travel and lifestyle edits","Promotional videos","Color grading","Smooth transitions and VFX"]},
+  {t:"Photography",d:"Portraits and shoots with a cinematic eye.",l:["Portrait photography","Personal photoshoots","Birthday photoshoots","Lifestyle photography","Creative cinematic photography"]},
+  {t:"Videography",d:"Professional shooting for moments worth keeping.",l:["Professional video shooting","Birthday and event videography","Cinematic personal videos","Promotional video shooting","Social media content shooting"]}],
+ // price: put your rate as text, e.g. "₹499"; leave "" to show "Contact for Quote"
+ pricing:[
+  {t:"Basic Edit",price:"",l:["Simple video editing","Basic transitions","Suitable for short videos"]},
+  {t:"Cinematic Edit",price:"",pop:1,l:["Cinematic color grading","Smooth transitions","Creative effects","Professional editing"]},
+  {t:"Premium Edit",price:"",l:["Advanced cinematic editing","Detailed effects and color grading","Custom editing style"]},
+  {t:"Photography",price:"",l:["Photoshoot packages","Custom photography pricing"]},
+  {t:"Videography",price:"",l:["Video shooting packages","Event and personal shooting"]}],
+ // portfolio: add src (video/image path) and poster to use your own media
+ work:[
+  {c:"Cinematic Edits",t:"Cinematic Edit 01"},{c:"Cinematic Edits",t:"Cinematic Edit 02"},
+  {c:"Instagram Reels",t:"Reel 01"},{c:"Instagram Reels",t:"Reel 02"},
+  {c:"YouTube Videos",t:"YouTube Video 01"},{c:"Photography",t:"Portrait 01"},
+  {c:"Photography",t:"Lifestyle 01"},{c:"Videography",t:"Event Shoot 01"}],
+ reviews:["Placeholder: replace with a real client review.","Placeholder: add your second real review here.","Placeholder: add your third real review here."]
+};
+/* ===================== */
+const $=s=>document.querySelector(s),H=(e,h)=>e.innerHTML=h;
+const grads=["linear-gradient(135deg,#0b3b57,#6d28d9)","linear-gradient(135deg,#3b0764,#d946ef)","linear-gradient(135deg,#0f172a,#2EC4FF)","linear-gradient(135deg,#1e1b4b,#8B5CF6)"];
+addEventListener("load",()=>setTimeout(()=>$("#loader").classList.add("off"),700));
+$("#burger").onclick=()=>$("#links").classList.toggle("open");
+$("#links").onclick=()=>$("#links").classList.remove("open");
+H($("#skills"),SITE.skills.map(s=>`<span>${s}</span>`).join(""));
+H($("#svc"),SITE.services.map((s,i)=>`<div class="card rv"><div class="pv" style="background:${grads[i]}"></div><h3>${s.t}</h3><p style="color:var(--mut);font-size:.9rem;margin:0 0 10px">${s.d}</p><ul>${s.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn" href="#contact" data-q="${s.t}">Get a Quote</a></div>`).join(""));
+H($("#prc"),SITE.pricing.map(p=>`<div class="card rv ${p.pop?"pop":""}">${p.pop?'<div class="tag">Most Popular</div>':""}<h3>${p.t}</h3><div class="price">${p.price||"Contact for Quote"}</div><ul>${p.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn ${p.pop?"p":""}" href="#contact" data-q="${p.t}">Get a Quote</a></div>`).join(""));
+H($("#sel"),'<option value="">Service required</option>'+[...SITE.services.map(s=>s.t),...SITE.pricing.map(p=>p.t)].filter((v,i,a)=>a.indexOf(v)==i).map(s=>`<option>${s}</option>`).join(""));
+document.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q)$("#sel").value=q.dataset.q});
+const cats=["All",...new Set(SITE.work.map(w=>w.c)),"Before & After"];
+function gal(c="All"){H($("#tabs"),cats.map(x=>`<button class="${x==c?"on":""}" data-c="${x}">${x}</button>`).join(""));
+ H($("#gal"),SITE.work.filter(w=>c=="All"||w.c==c).map((w,i)=>`<div class="it" tabindex="0" role="button" data-i="${SITE.work.indexOf(w)}"><div class="bg" style="background:${w.poster?`url(${w.poster}) center/cover`:grads[i%4]}"></div><div class="pl">▶</div><div class="cap">${w.t}<br><small style="color:var(--mut)">${w.c} · placeholder</small></div></div>`).join(""));
+ if(c=="Before & After")$("#ba").scrollIntoView({behavior:"smooth",block:"center"})}
+gal();
+$("#tabs").onclick=e=>{if(e.target.dataset.c)gal(e.target.dataset.c)};
+const open=e=>{const it=e.target.closest(".it");if(!it)return;const w=SITE.work[it.dataset.i];
+ H($("#mc"),w.src?(/\.(mp4|webm)$/i.test(w.src)?`<video src="${w.src}" controls autoplay playsinline></video>`:`<img src="${w.src}" alt="${w.t}">`):`<div>Placeholder: add a video or image path<br>as <b>src</b> in SITE.work<br><small>${w.t}</small></div>`);
+ $("#mc").style.background=grads[it.dataset.i%4];$("#modal").classList.add("open")};
+$("#gal").onclick=open;$("#gal").onkeydown=e=>{if(e.key=="Enter")open(e)};
+const close=()=>{$("#modal").classList.remove("open");H($("#mc"),"")};
+$("#x").onclick=close;$("#modal").onclick=e=>{if(e.target.id=="modal")close()};addEventListener("keydown",e=>e.key=="Escape"&&close());
+const ba=$("#ba"),bf=ba.querySelector(".before"),hd=ba.querySelector(".hd");
+const mv=x=>{const r=ba.getBoundingClientRect(),p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));bf.style.clipPath=`inset(0 ${100-p}% 0 0)`;hd.style.left=p+"%"};
+ba.onpointerdown=e=>{ba.setPointerCapture(e.pointerId);mv(e.clientX);ba.onpointermove=e=>mv(e.clientX)};ba.onpointerup=()=>ba.onpointermove=null;
+let ri=0;const sr=i=>{ri=i;H($("#rev"),`<p style="font-size:1.1rem;margin:0">“${SITE.reviews[i]}”</p>`);H($("#dots"),SITE.reviews.map((_,j)=>`<i class="${j==i?"on":""}" data-j="${j}"></i>`).join(""))};
+sr(0);$("#dots").onclick=e=>e.target.dataset.j&&sr(+e.target.dataset.j);setInterval(()=>sr((ri+1)%SITE.reviews.length),5000);
+const wa=m=>`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(m)}`;
+$("#wa").href=SITE.whatsapp?wa("Hi Lithish, I’d like to discuss a project."):"#contact";
+$("#em").href=SITE.email?"mailto:"+SITE.email:"#contact";
+["ig","ig2","ig3"].forEach(i=>$("#"+i).href=SITE.instagram);["yt","yt2","yt3"].forEach(i=>$("#"+i).href=SITE.youtube);
+$("#form").onsubmit=e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));
+ const m=`New inquiry\nName: ${f.name}\nContact: ${f.contact}\nService: ${f.service}\nBudget: ${f.budget}\nDeadline: ${f.deadline}\nProject: ${f.desc}`;
+ if(SITE.whatsapp)open2(wa(m));else if(SITE.email)location.href=`mailto:${SITE.email}?subject=Project inquiry&body=${encodeURIComponent(m)}`;else alert("Set your WhatsApp number or email in the SITE config at the top of the script.")};
+const open2=u=>window.open(u,"_blank","noopener");
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+addEventListener("scroll",()=>{$("#hero").style.setProperty("--y",scrollY*.2)},{passive:true});
+</script>
+</body>
+</html>
